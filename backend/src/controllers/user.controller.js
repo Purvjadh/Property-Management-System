@@ -29,7 +29,7 @@ const createUser = asyncHandler(async (req, res) => {
     });
 
     // Fetch created user
-    const createdUser = await User.findById(user._id);
+    const createdUser = await User.findById(user._id).select("-createdAt updatedAt")
 
     if (!createdUser) {
         throw new ApiError(500, "Something went wrong while creating the user");
@@ -72,7 +72,7 @@ const updateUserDetails = asyncHandler(async (req, res) => {
         id,
         { $set: updateData },
         { new: true, runValidators: true }
-    );
+    ).select("-createdAt -updatedAt")
 
     if (!updatedUser) {
         throw new ApiError(404, "User not found");
@@ -102,7 +102,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 const getUser = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
-    const user = await User.findById(id);
+    const user = await User.findById(id).select("-createdAt -updatedAt")
 
     if (!user) {
         throw new ApiError(404, "User not found");
@@ -117,7 +117,7 @@ const getUser = asyncHandler(async (req, res) => {
 //get All users
 
 const getAllUsers = asyncHandler(async (req, res) => {
-    const users = await User.find({}).sort({ createdAt: -1 });
+    const users = await User.find({}).select("-createdAt -updatedAt").sort({ createdAt: -1 })
 
     return res.status(200).json(
         new ApiResponse(
