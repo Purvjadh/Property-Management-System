@@ -1,211 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Property Management | Login</title>
-  <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
-body {
-  height: 100vh;
-  background: linear-gradient(-45deg,pink ,rgb(5, 138, 190));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: 400% 400%;
-}
-
-.container {
-  width: 100%;
-  max-width: 420px;
-}
-
-.login-card {
-  background:rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-  animation: slideUp 0.8s ease;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.login-card h1 {
-  text-align: center;
-  color:#1d2671;
-  font-size: 26px;
-  margin-bottom: 6px;
-
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 24px;
-}
-
-.input-group {
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.input-group input,
-.input-group select,
-.input-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  
-  border-radius: 8px;
-  font-size: 14px;
-  background: transparent;
-  background: white;
-  transition: 0.3s ease;
-}
-.input-group input:hover,
-.input-group select:hover,
-.input-group textarea:hover {
-  border-color: #c33764;
-}
-
-.input-group input:focus,
-.input-group select:focus,
-.input-group textarea:focus {
-  border-color: #c33764;
-  box-shadow: 0 0 0 3px rgba(195,55,100,0.15);
-}
-
-
-.input-group label {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  color: #777;
-  font-size: 13px;
-  pointer-events: none;
-  transform: translateY(-50%);
-  transition: 0.3s ease;
-  background: #fff;
-  padding: 0 5px;
-}
-
-.input-group input:focus + label,
-.input-group input:valid + label,
-.input-group select:focus + label,
-.input-group select:valid + label,
-.input-group textarea:focus + label,
-.input-group textarea:valid + label {
-  top: -6px;
-  color: #c33764;
-  font-size: 12px;
-}
-button:active {
-  transform: scale(0.98);
-}
-
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, pink,rgb(13, 148, 201));
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-button:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 12px 25px rgba(195,55,100,0.4);
-}
-.bg-shape {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.5;
-  z-index: -1;
-}
-
-.bg-shape.one {
-  width: 300px;
-  height: 300px;
-  background: #ff8dc7;
-  top: 10%;
-  left: 15%;
-}
-
-.bg-shape.two {
-  width: 250px;
-  height: 250px;
-  background: #6a7bff;
-  bottom: 15%;
-  right: 15%;
-}
-
-  </style>
+    <meta charset="UTF-8">
+    <title>Property Management | Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+        
+        body {
+            height: 100vh;
+            background: linear-gradient(-45deg, pink, rgb(5, 138, 190));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: 400% 400%;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 420px;
+        }
+        
+        .login-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            animation: slideUp 0.8s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .login-card h1 {
+            text-align: center;
+            color: #1d2671;
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: 16px;
+        }
+        
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            background: transparent;
+            background: white;
+            transition: 0.3s ease;
+        }
+        
+        .input-group input:hover,
+        .input-group select:hover,
+        .input-group textarea:hover {
+            border-color: #c33764;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: #c33764;
+            box-shadow: 0 0 0 3px rgba(195, 55, 100, 0.15);
+        }
+        
+        .input-group label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            color: #777;
+            font-size: 13px;
+            pointer-events: none;
+            transform: translateY(-50%);
+            transition: 0.3s ease;
+            background: #fff;
+            padding: 0 5px;
+        }
+        
+        .input-group input:focus+label,
+        .input-group input:valid+label,
+        .input-group select:focus+label,
+        .input-group select:valid+label,
+        .input-group textarea:focus+label,
+        .input-group textarea:valid+label {
+            top: -6px;
+            color: #c33764;
+            font-size: 12px;
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, pink, rgb(13, 148, 201));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 12px 25px rgba(195, 55, 100, 0.4);
+        }
+        
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .bg-shape.one {
+            width: 300px;
+            height: 300px;
+            background: #ff8dc7;
+            top: 10%;
+            left: 15%;
+        }
+        
+        .bg-shape.two {
+            width: 250px;
+            height: 250px;
+            background: #6a7bff;
+            bottom: 15%;
+            right: 15%;
+        }
+    </style>
 </head>
+
 <body>
     <div class="bg-shape one"></div>
-<div class="bg-shape two"></div>
+    <div class="bg-shape two"></div>
 
 
-  <div class="container">
-    <form class="login-card">
-      <h1>Guest Login</h1>
-      <p class="subtitle">Enter your details to continue</p>
+    <div class="container">
+        <form class="login-card" id="loginForm">
+            <h1>Guest Login</h1>
+            <p class="subtitle">Enter your details to continue</p>
 
-      
 
-      <div class="input-group">
-        <input type="text" required>
-        <label>Full Name</label>
-      </div>
-      <div class="input-group">
-        <input type="text" required>
-        <label>Username</label>
-      </div>
 
-      
+            <div class="input-group">
+                <input type="text" name="fullName" required>
+                <label>Full Name</label>
+            </div>
+            <div class="input-group ">
+                <input type="text " name="username" required>
+                <label>Username</label>
+            </div>
 
-     
 
-      <div class="input-group">
-        <input type="email" required>
-        <label>Email Address</label>
-      </div>
 
-      
 
-      <button type="submit">Continue</button>
 
-    </form>
-  </div>
-  <script>
- document.querySelector(".login-card").addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("Guest details submitted successfully!");
-});
-</script>
+            <div class=" input-group ">
+                <input type="email" name="email" required>
+                <label>Email Address</label>
+            </div>
+
+
+
+            <button type="submit ">Continue</button>
+
+        </form>
+    </div>
+    <script>
+        const API_URL = "http://localhost:8000/api/v1/users";
+
+        const form = document.getElementById("loginForm");
+
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get("id");
+
+        const fullNameInput = form.querySelector("input[name='fullName']");
+        const usernameInput = form.querySelector("input[name='username']");
+        const emailInput = form.querySelector("input[name='email']");
+
+        // =========================
+        // EDIT MODE: load user data
+        // =========================
+        if (userId) {
+            fetch(`${API_URL}/${userId}`)
+                .then(res => res.json())
+                .then(result => {
+                    const user = result.data;
+
+                    // Prefill fields
+                    fullNameInput.value = user.fullName;
+                    usernameInput.value = user.username;
+                    emailInput.value = user.email;
+
+                    // 🔒 Lock username (NOT editable)
+                    usernameInput.disabled = true;
+                })
+                .catch(err => {
+                    alert("Failed to load user data");
+                    console.error(err);
+                });
+        }
+
+        // =========================
+        // SUBMIT: Create or Update
+        // =========================
+        form.addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            // Payload: only editable fields
+            const payload = {
+                fullName: fullNameInput.value,
+                email: emailInput.value
+            };
+
+            // Username ONLY during CREATE
+            if (!userId) {
+                payload.username = usernameInput.value;
+            }
+
+            try {
+                const response = await fetch(
+                    userId ? `${API_URL}/${userId}` : API_URL, {
+                        method: userId ? "PATCH" : "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    }
+                );
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    alert(result.message || "Operation failed");
+                    return;
+                }
+
+                alert(userId ? "User updated successfully!" : "User created successfully!");
+
+                window.location.href = "../preview.html";
+
+            } catch (error) {
+                alert("Server error. Please try again.");
+                console.error(error);
+            }
+        });
+    </script>
+
+
 </body>
+
 </html>

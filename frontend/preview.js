@@ -46,11 +46,44 @@ function renderUsers(users) {
             <td>${user.email}</td>
             <td>${new Date(user.createdAt).toLocaleString()}</td>
             <td>
-                <button disabled>Edit</button>
-                <button disabled>Delete</button>
+                <button onclick="editUser('${user._id}')">Edit</button>
+
+                <button onclick="deleteUser('${user._id}')">Delete</button>
             </td>
         `;
 
         tableBody.appendChild(row);
     });
+}
+
+async function deleteUser(userId) {
+    const confirmDelete = confirm("Are you sure you want to delete this user?");
+    if (!confirmDelete) return;
+
+    try {
+        const response = await fetch(`${API_URL}/${userId}`, {
+            method: "DELETE"
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            alert(result.message || "Failed to delete user");
+            return;
+        }
+
+        alert("User deleted successfully");
+
+        // Refresh list after delete
+        fetchUsers();
+
+    } catch (error) {
+        console.error("Delete error:", error);
+        alert("Server error while deleting user");
+    }
+}
+
+function editUser(userId) {
+    // redirect to form in EDIT mode
+    window.location.href = `login/login.html?id=${userId}`;
 }
